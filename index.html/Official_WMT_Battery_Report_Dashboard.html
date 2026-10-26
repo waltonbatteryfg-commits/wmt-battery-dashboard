@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Official WMT Battery Report</title>
+<style>
+:root{--navy:#10243a;--blue:#1769aa;--cyan:#12a6a6;--bg:#eef3f8;--ink:#1c2b3a;--muted:#657789;--white:#fff;--line:#dce5ee;--orange:#f39c35;--red:#d9534f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+header{background:linear-gradient(120deg,#10243a,#1769aa);color:#fff;padding:24px clamp(16px,4vw,44px);display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;gap:14px;align-items:center}.logo{width:52px;height:52px;border-radius:13px;background:#fff;color:#1769aa;display:grid;place-items:center;font-weight:900;font-size:19px;box-shadow:0 4px 12px #0002}
+h1{font-size:clamp(22px,3vw,32px);margin:0 0 6px}.subtitle{color:#d9e9f8;font-size:13px;letter-spacing:.3px}.period{text-align:right;font-size:13px;line-height:1.7}
+main{max-width:1450px;margin:auto;padding:24px clamp(12px,3vw,32px) 40px}.section-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 16px;flex-wrap:wrap}.section-title h2{font-size:19px;margin:0}.tag{font-size:12px;color:#1769aa;background:#e0effc;padding:7px 11px;border-radius:20px;font-weight:bold}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px;box-shadow:0 4px 14px #17334d0a;min-width:0;position:relative;overflow:hidden}.card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent,var(--blue))}.label{font-size:12px;color:var(--muted);font-weight:bold;text-transform:uppercase;letter-spacing:.5px}.value{font-size:clamp(23px,2.5vw,31px);font-weight:800;margin:10px 0 5px;overflow-wrap:anywhere}.unit{font-size:12px;color:var(--muted)}.card small{color:var(--muted)}
+.layout{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-top:20px}.panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px;box-shadow:0 4px 14px #17334d0a;min-width:0}.panel h3{font-size:16px;margin:0 0 7px}.hint{font-size:12px;color:var(--muted);margin:0 0 18px}.chart{display:flex;flex-direction:column;gap:16px}.barrow{display:grid;grid-template-columns:105px 1fr 75px;gap:10px;align-items:center;font-size:12px}.barlabel{color:#405468;font-weight:bold}.track{height:13px;background:#edf2f7;border-radius:20px;overflow:hidden}.bar{height:100%;border-radius:20px;background:var(--barcolor,#1769aa);width:0%;transition:width .3s}.barval{text-align:right;font-weight:bold;font-variant-numeric:tabular-nums}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini{background:#f6f9fc;border:1px solid #e7edf4;border-radius:12px;padding:14px}.mini span{display:block;color:var(--muted);font-size:12px;margin-bottom:8px}.mini strong{font-size:22px}.note{margin-top:14px;padding:12px 14px;background:#fff7e9;border:1px solid #ffe2b1;border-radius:10px;color:#75501d;font-size:12px;line-height:1.6}
+.form-panel{margin-top:20px}.form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.field label{display:block;font-size:12px;font-weight:bold;color:#526578;margin-bottom:7px}.field input{width:100%;padding:11px 12px;border:1px solid #cdd9e5;border-radius:9px;font-size:14px;color:var(--ink);background:#fff}.field input:focus{outline:2px solid #b9dcfb;border-color:#1769aa}.form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{border:0;border-radius:9px;padding:11px 16px;font-weight:bold;cursor:pointer;font-size:13px}.primary{background:#1769aa;color:#fff}.secondary{background:#e9f0f7;color:#29445e}.danger{background:#fff0ef;color:#a82d2a}.history{width:100%;border-collapse:collapse;margin-top:12px;font-size:12px}.history th,.history td{padding:11px 9px;text-align:left;border-bottom:1px solid var(--line)}.history th{background:#f3f7fb;color:#506477}.table-wrap{overflow-x:auto}.footer{text-align:center;color:#718396;font-size:11px;margin-top:25px}.saved{font-size:12px;color:#18794e;margin-left:4px}
+@media(max-width:950px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:1fr}.form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.period{text-align:left}}
+@media(max-width:520px){.cards{grid-template-columns:1fr 1fr;gap:9px}.card{padding:14px}.value{font-size:22px}.panel{padding:15px}.form-grid{grid-template-columns:1fr 1fr}.barrow{grid-template-columns:85px 1fr 58px;gap:7px}.barlabel{font-size:11px}.barval{font-size:11px}.logo{width:44px;height:44px}}
+@media print{body{background:white}.form-panel,.form-actions,.tag{display:none!important}main{padding:8px}.card,.panel{box-shadow:none;break-inside:avoid}header{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="logo">WMT</div><div><h1>Official WMT Battery Report</h1><div class="subtitle">WALTON MICRO-TECH CORPORATION · LOGISTICS &amp; DISTRIBUTION</div></div></div>
+ <div class="period"><b id="periodTitle">October 2026 — Monthly Summary</b><br><span id="periodRange">01/10/2026 to 25/10/2026</span><br><span>Management Dashboard</span></div>
+</header>
+<main>
+ <div class="section-title"><h2>Executive Summary</h2><span class="tag">LIVE DASHBOARD · PCS</span></div>
+ <section class="cards">
+  <div class="card" style="--accent:#1769aa"><div class="label">Present Stock</div><div class="value" id="stockCard">18,381</div><div class="unit">Battery stock available</div></div>
+  <div class="card" style="--accent:#12a6a6"><div class="label">Production</div><div class="value" id="productionCard">15,225</div><div class="unit">Total production</div></div>
+  <div class="card" style="--accent:#7657c8"><div class="label">Challan</div><div class="value" id="challanCard">16,753</div><div class="unit">Total challan quantity</div></div>
+  <div class="card" style="--accent:#f39c35"><div class="label">Delivery</div><div class="value" id="deliveryCard">15,556</div><div class="unit">Total delivery quantity</div></div>
+  <div class="card" style="--accent:#d9534f"><div class="label">Due Challan</div><div class="value" id="dueCard">1,944</div><div class="unit">Pending challan quantity</div></div>
+  <div class="card" style="--accent:#607d8b"><div class="label">Out Of Stock</div><div class="value" id="outCard">561</div><div class="unit">Reported out-of-stock quantity</div></div>
+  <div class="card" style="--accent:#12a6a6"><div class="label">Last Day Production</div><div class="value" id="lastProductionCard">32</div><div class="unit">Latest day's production</div></div>
+  <div class="card" style="--accent:#1769aa"><div class="label">Last Day Delivery</div><div class="value" id="lastDeliveryCard">54</div><div class="unit">Latest day's delivery</div></div>
+ </section>
+ <section class="layout">
+  <div class="panel"><h3>Quantity Comparison</h3><p class="hint">Visual comparison of reported quantities (pcs).</p><div class="chart" id="quantityChart"></div></div>
+  <div class="panel"><h3>Operations Snapshot</h3><p class="hint">Key figures at a glance.</p><div class="stat-grid">
+   <div class="mini"><span>Delivery vs Production</span><strong id="deliveryRatio">102.2%</strong></div>
+   <div class="mini"><span>Challan vs Delivery Gap</span><strong id="gapValue">1,197 pcs</strong></div>
+   <div class="mini"><span>Present Stock + Out of Stock*</span><strong id="stockTotal">18,942 pcs</strong></div>
+   <div class="mini"><span>Report Coverage</span><strong id="coverage">25 days</strong></div>
+  </div><div class="note"><b>Management note:</b> Figures shown here are based on the values entered in this dashboard. Confirm stock, due challan and out-of-stock definitions with the source report before making operational decisions. *Stock + out-of-stock is a simple display calculation, not an official inventory total.</div></div>
+ </section>
+ <section class="panel form-panel">
+  <div class="section-title"><h2>Update Daily / Monthly Figures</h2><span class="saved" id="saveStatus">Ready to update</span></div>
+  <p class="hint">প্রতিদিন নতুন সংখ্যা এলে নিচের ঘরগুলো পরিবর্তন করে “Update Dashboard” চাপুন। তথ্য এই browser-এ save থাকবে।</p>
+  <div class="form-grid">
+   <div class="field"><label for="month">Report Month</label><input id="month" type="text" value="October 2026"></div>
+   <div class="field"><label for="startDate">Start Date</label><input id="startDate" type="date" value="2026-10-01"></div>
+   <div class="field"><label for="endDate">End Date</label><input id="endDate" type="date" value="2026-10-25"></div>
+   <div class="field"><label for="stock">Present Stock (pcs)</label><input id="stock" type="number" min="0" value="18381"></div>
+   <div class="field"><label for="production">Production (pcs)</label><input id="production" type="number" min="0" value="15225"></div>
+   <div class="field"><label for="challan">Challan (pcs)</label><input id="challan" type="number" min="0" value="16753"></div>
+   <div class="field"><label for="delivery">Delivery (pcs)</label><input id="delivery" type="number" min="0" value="15556"></div>
+   <div class="field"><label for="due">Due Challan (pcs)</label><input id="due" type="number" min="0" value="1944"></div>
+   <div class="field"><label for="out">Out Of Stock (pcs)</label><input id="out" type="number" min="0" value="561"></div>
+   <div class="field"><label for="lastProduction">Last Day Production (pcs)</label><input id="lastProduction" type="number" min="0" value="32"></div>
+   <div class="field"><label for="lastDelivery">Last Day Delivery (pcs)</label><input id="lastDelivery" type="number" min="0" value="54"></div>
+  </div>
+  <div class="form-actions"><button class="btn primary" onclick="updateDashboard()">Update Dashboard</button><button class="btn secondary" onclick="saveSnapshot()">Save Daily Snapshot</button><button class="btn secondary" onclick="window.print()">Print / Save PDF</button><button class="btn danger" onclick="resetData()">Reset Sample Data</button></div>
+ </section>
+ <section class="panel" style="margin-top:20px"><div class="section-title"><h2>Saved Daily Snapshots</h2><span class="tag">THIS BROWSER ONLY</span></div><p class="hint">“Save Daily Snapshot” চাপলে বর্তমান সংখ্যাগুলো তারিখসহ নিচে জমা হবে।</p><div class="table-wrap"><table class="history"><thead><tr><th>Saved At</th><th>Period</th><th>Stock</th><th>Production</th><th>Challan</th><th>Delivery</th><th>Due Challan</th></tr></thead><tbody id="historyBody"><tr><td colspan="7">No snapshots saved yet.</td></tr></tbody></table></div></section>
+ <div class="footer">Official WMT Battery Report · Prototype v1.0 · For internal reporting use</div>
+</main>
+<script>
+const fields=['stock','production','challan','delivery','due','out','lastProduction','lastDelivery'];
+const defaults={month:'October 2026',startDate:'2026-10-01',endDate:'2026-10-25',stock:18381,production:15225,challan:16753,delivery:15556,due:1944,out:561,lastProduction:32,lastDelivery:54};
+const fmt=n=>Number(n||0).toLocaleString('en-US');
+function getData(){let d={month:document.getElementById('month').value,startDate:document.getElementById('startDate').value,endDate:document.getElementById('endDate').value};fields.forEach(k=>d[k]=Math.max(0,Number(document.getElementById(k).value)||0));return d}
+function dateFmt(s){if(!s)return '—';let a=s.split('-');return `${a[2]}/${a[1]}/${a[0]}`}
+function updateDashboard(){
+ const d=getData(); fields.forEach(k=>{let target={stock:'stockCard',production:'productionCard',challan:'challanCard',delivery:'deliveryCard',due:'dueCard',out:'outCard',lastProduction:'lastProductionCard',lastDelivery:'lastDeliveryCard'}[k];document.getElementById(target).textContent=fmt(d[k])});
+ document.getElementById('periodTitle').textContent=(d.month||'Battery Report')+' — Monthly Summary';
+ document.getElementById('periodRange').textContent=dateFmt(d.startDate)+' to '+dateFmt(d.endDate);
+ document.getElementById('deliveryRatio').textContent=(d.production?((d.delivery/d.production)*100):0).toFixed(1)+'%';
+ document.getElementById('gapValue').textContent=fmt(d.challan-d.delivery)+' pcs';
+ document.getElementById('stockTotal').textContent=fmt(d.stock+d.out)+' pcs';
+ let days=0;if(d.startDate&&d.endDate){days=Math.max(0,Math.round((new Date(d.endDate)-new Date(d.startDate))/86400000)+1)}document.getElementById('coverage').textContent=days+' days';
+ const items=[['Present Stock',d.stock,'#1769aa'],['Production',d.production,'#12a6a6'],['Challan',d.challan,'#7657c8'],['Delivery',d.delivery,'#f39c35'],['Due Challan',d.due,'#d9534f'],['Out Of Stock',d.out,'#607d8b']];
+ const max=Math.max(1,...items.map(x=>x[1]));document.getElementById('quantityChart').innerHTML=items.map(x=>`<div class="barrow"><div class="barlabel">${x[0]}</div><div class="track"><div class="bar" style="width:${x[1]/max*100}%;--barcolor:${x[2]}"></div></div><div class="barval">${fmt(x[1])}</div></div>`).join('');
+ localStorage.setItem('wmtBatteryCurrent',JSON.stringify(d));document.getElementById('saveStatus').textContent='Dashboard updated ✓';
+}
+function saveSnapshot(){updateDashboard();let d=getData();let arr=JSON.parse(localStorage.getItem('wmtBatteryHistory')||'[]');arr.unshift({...d,savedAt:new Date().toLocaleString()});localStorage.setItem('wmtBatteryHistory',JSON.stringify(arr.slice(0,100)));renderHistory();document.getElementById('saveStatus').textContent='Snapshot saved ✓'}
+function renderHistory(){let arr=JSON.parse(localStorage.getItem('wmtBatteryHistory')||'[]');document.getElementById('historyBody').innerHTML=arr.length?arr.map(d=>`<tr><td>${d.savedAt}</td><td>${d.month}<br><small>${dateFmt(d.startDate)} – ${dateFmt(d.endDate)}</small></td><td>${fmt(d.stock)}</td><td>${fmt(d.production)}</td><td>${fmt(d.challan)}</td><td>${fmt(d.delivery)}</td><td>${fmt(d.due)}</td></tr>`).join(''):'<tr><td colspan="7">No snapshots saved yet.</td></tr>'}
+function resetData(){if(!confirm('Reset all figures to the original October 2026 sample?'))return;Object.entries(defaults).forEach(([k,v])=>document.getElementById(k).value=v);updateDashboard()}
+function loadSaved(){try{const d=JSON.parse(localStorage.getItem('wmtBatteryCurrent')||'null');if(d)Object.entries(d).forEach(([k,v])=>{if(document.getElementById(k))document.getElementById(k).value=v})}catch(e){}updateDashboard();renderHistory()}
+loadSaved();
+</script>
+</body></html>
